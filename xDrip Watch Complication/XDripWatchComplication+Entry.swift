@@ -144,7 +144,9 @@ extension XDripWatchComplication.Entry {
         }
         
         func isSmallScreen() -> Bool {
-            return (WKInterfaceDevice.current().screenBounds.size.width < ConstantsAppleWatch.pixelWidthLimitForSmallScreen) ? true : false
+            var screenSize = WKInterfaceDevice.current().screenBounds.size
+            var screenWidth = screenSize.width
+            return (screenWidth < ConstantsAppleWatch.pixelWidthLimitForSmallScreen) ? true : false
         }
         
         func overrideChartHeight() -> Double {
